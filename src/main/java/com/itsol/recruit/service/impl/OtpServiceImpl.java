@@ -40,7 +40,7 @@ public class OtpServiceImpl implements OtpService {
             otpRepository.save(otp);
         }
 
-        String emails=emailService.buildOtpEmail(user.getName(), otp.getCode());
+        String emails=emailService.buildOtpEmail(user.getUserName(), otp.getCode());
         emailService.sendEmail(user.getEmail(),emails);
         return new ResponseDTO("Send sucess");
     }
